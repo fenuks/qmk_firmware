@@ -19,6 +19,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
+/* LED pins
+Fn :: D0
+Num :: C5
+Caps :: C6
+Scroll :: B7
+*/
+
 #define fn_led_on() writePinLow(D0)
 #define fn_led_off() writePinHigh(D0)
 
