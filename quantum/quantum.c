@@ -416,6 +416,9 @@ void suspend_power_down_quantum(void) {
     // Turn off LED indicators
     led_suspend();
 
+    writePinHigh(LED_SCROLL_LOCK_PIN);
+    writePinHigh(LED_CAPS_LOCK_PIN);
+
 // Turn off audio
 #    ifdef AUDIO_ENABLE
     stop_all_notes();
