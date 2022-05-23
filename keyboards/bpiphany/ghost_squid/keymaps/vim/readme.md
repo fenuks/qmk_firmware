@@ -4,6 +4,7 @@
 - one-time shot for CTRL
 - RCTRL with Caps Lock and LCTRL with ;
 - Escape with Caps Lock tap
+- FN + Pause enters bootloader
 ### Space cadet
 - lsft -> (
 - rsft -> )
