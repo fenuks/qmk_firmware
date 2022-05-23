@@ -34,23 +34,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘
 */
 
-/* Colemak layout
-* ┌───┐   ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┐     ┌───────────┐
-* │ESC│   │F1 │F2 │F3 │F4 │ │F5 │F6 │F7 │F8 │ │F9 │F10│F11│F12│ │PRT│SCR│PAU│     │Ghost Squid│
-* └───┘   └───┴───┴───┴───┘ └───┴───┴───┴───┘ └───┴───┴───┴───┘ └───┴───┴───┘     └───────────┘
-* ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐ ┌───┬───┬───┐ ┌───┬───┬───┬───┐
-* │ ` │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 0 │ - │ = │ Backsp│ │INS│HOM│PgU│ │NUM│ / │ * │ - │
-* ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤ ├───┼───┼───┤ ├───┼───┼───┼───┤
-* │ Tab │ Q │ W │ F │ P │ B │ J │ L │ U │ Y │ ; │ [ │ ] │     │ │DEL│END│PgD│ │ 7 │ 8 │ 9 │   │
-* ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┐  ↲ │ └───┴───┴───┘ ├───┼───┼───┤ + │
-* │ Caps │ A │ R │ S │ T │ G │ M │ N │ E │ I │ O │ ' │ \ │    │               │ 7 │ 8 │ 9 │   │
-* ├────┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴───┴────┤     ┌───┐     ├───┼───┼───┼───┤
-* │Shif│ Z │ X │ C │ D │ V │ \ │ K │ H │ , │ . │ / │    Shift │     │ ↑ │     │ 1 │ 2 │ 3 │   │
-* ├────┼───┴┬──┴─┬─┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤ ┌───┼───┼───┐ ├───┴───┼───┤ ↲ │
-* │Ctrl│GUI │Alt │                        │ Alt│ GUI│Fn  │Ctrl│ │ ← │ ↓ │ → │ │   0   │ , │   │
-* └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘
-*/
-
 /* Dvorak layout (modified)
 * ┌───┐   ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┐     ┌───────────┐
 * │ESC│   │F1 │F2 │F3 │F4 │ │F5 │F6 │F7 │F8 │ │F9 │F10│F11│F12│ │PRT│SCR│PAU│     │Ghost Squid│
@@ -92,10 +75,6 @@ enum layer_names {
     KM_QWERTY_MEDIA,
     KM_QWERTY_VIM,
 
-    KM_COLEMAK_DH,
-    KM_COLEMAK_DH_MEDIA,
-    KM_COLEMAK_DH_VIM,
-
     KM_DVORAK,
     KM_DVORAK_MEDIA,
     KM_DVORAK_NUM,
@@ -103,9 +82,6 @@ enum layer_names {
 };
 
 // key defines
-#define MO_CM MO(KM_COLEMAK_DH_MEDIA)
-#define TG_CV TG(KM_COLEMAK_DH_VIM)
-
 #define MO_DM MO(KM_DVORAK_MEDIA)
 #define TG_DV TG(KM_DVORAK_VIM)
 #define TG_DN TG(KM_DVORAK_NUM)
@@ -114,7 +90,6 @@ enum layer_names {
 #define TG_QV TG(KM_QWERTY_VIM)
 
 #define DF_Q DF(KM_QWERTY)
-#define DF_C DF(KM_COLEMAK_DH)
 #define DF_D DF(KM_DVORAK)
 
 #define RC_ESC LCTL_T(KC_ESC)
@@ -130,16 +105,6 @@ enum layer_names {
 #define TD_RB TD(TAP_DANCE_RCBR)
 #define TD_M TD(TAP_DANCE_M)
 #define TD_U TD(TAP_DANCE_U)
-
-// home colemak keys
-#define HC_A LGUI_T(KC_A)
-#define HC_R LALT_T(KC_R)
-#define HC_S LSFT_T(KC_S)
-#define HC_T LCTL_T(KC_T)
-#define HC_N RCTL_T(KC_N)
-#define HC_E RSFT_T(KC_E)
-#define HC_I LALT_T(KC_I)
-#define HC_O RGUI_T(KC_O)
 
 // home dvorak keys
 #define HD_A LGUI_T(KC_A)
@@ -185,7 +150,7 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [KM_QWERTY] = LAYOUT(
-KC_ESC,          KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11, KC_F12,   KC_PSCR,DF_C,   KC_PAUS,
+KC_ESC,          KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11, KC_F12,   KC_PSCR,DF_D,   KC_PAUS,
 KC_GRV,  KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,KC_EQL, KC_BSPC,  TG_QV,  KC_HOME,KC_PGUP,    KC_NLCK,KC_PSLS,KC_PAST,KC_PMNS,
 KC_TAB,  KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   TD_U,   KC_I,   KC_O,   KC_P,   TD_LB, TD_RB, RC_BL,  KC_DEL, KC_END, KC_PGDN,    KC_P7,  KC_P8,  KC_P9,  KC_PPLS,
 RC_ESC, TD_A,   KC_S,   KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   KC_K,   KC_L,   KC_SCLN,KC_QUOT,        KC_ENT,                               KC_P4,  KC_P5,  KC_P6,
@@ -205,30 +170,6 @@ KC_TAB,  KC_Q,   C(KC_RGHT),   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   TG_QV,   
 KC_CLCK, KC_A,   KC_S,   KC_D,   KC_F,   KC_G,   KC_LEFT,KC_DOWN,KC_UP,  KC_RGHT,KC_SCLN,KC_QUOT,        KC_ENT,                               KC_P4,  KC_P5,  KC_P6,
 KC_LSPO, KC_NUBS,KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM,KC_DOT, KC_SLSH,        KC_RSPC,          KC_UP,              KC_P1,  KC_P2,  KC_P3,  KC_PENT,
 KC_LCTL, KC_LGUI,KC_LALT,                       KC_SPC,                          KC_RALT,KC_RGUI,MO_QM,  KC_RCTL,   KC_LEFT,KC_DOWN,KC_RGHT,    KC_P0,          KC_PDOT),
-
-
-        [KM_COLEMAK_DH] = LAYOUT(
-KC_ESC,       KC_F1, KC_F2, KC_F3, KC_F4,  KC_F5,KC_F6,KC_F7,KC_F8,  KC_F9, KC_F10,  KC_F11, KC_F12,     KC_PSCR, DF_D,    KC_PAUS,
-KC_GRV, KC_1,   KC_2, KC_3, KC_4, KC_5, KC_6,   KC_7, KC_8, KC_9,   KC_0,   KC_MINS, KC_EQL, KC_BSPC,    KC_INS,  KC_HOME, KC_PGUP,  KC_NLCK,KC_PSLS,KC_PAST,KC_PMNS,
-KC_TAB, KC_Q,   KC_W, KC_F, KC_P, KC_B, KC_J,   KC_L, KC_U, KC_Y,   KC_SCLN,KC_LCBR, KC_RCBR,KC_BSLS,    KC_DEL,  KC_END,  KC_PGDN,  KC_P7,  KC_P8,  KC_P9,  KC_PPLS,
-RC_ESC, HC_A,   HC_R, HC_S, HC_T, KC_G, KC_M,   HC_N, HC_E, HC_I,   HC_O,   KC_QUOT,         KC_ENT,                                 KC_P4,  KC_P5,  KC_P6,
-KC_LSPO, KC_Z,  KC_X, KC_C, KC_D, KC_V, KC_NUBS,KC_K, KC_H, KC_COMM,KC_DOT, KC_SLSH,         KC_RSPC,             KC_UP,             KC_P1,  KC_P2,  KC_P3,  KC_PENT,
-KC_LCTL,KC_LGUI,LA_LB,                          KC_SPC,            RA_RB,   KC_RGUI, MO_CM,  KC_RCTL,    KC_LEFT,KC_DOWN,  KC_RGHT,  KC_P0,          KC_PDOT),
-        [KM_COLEMAK_DH_MEDIA] = LAYOUT(
-KC_SLEP,    KC_MYCM,KC_WSCH,KC_CALC,KC_MSEL,  KC_MPLY,KC_MSTP,KC_MPRV,KC_MNXT,  TG_CV,  KC_MUTE,KC_VOLD,KC_VOLU,     KC_PWR, KC_SLCK,RESET,
-_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,     _______,_______,_______,   NNN,NNN,NNN,NNN,
-_______,DT_PRNT,DT_DOWN,DT_UP  ,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,     _______,_______,_______,   NNN,NNN,NNN,NNN,
-_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,                                        NNN,NNN,NNN,
-_______,_______,_______,_______,_______,TG_CV  ,_______,_______,_______,_______,_______,_______,_______,                     _______,           NNN,NNN,NNN,NNN,
-_______,_______,_______,                  KC_LOCK,                      _______,_______,_______,_______,             _______,_______,_______,   NNN,    NNN),
-        [KM_COLEMAK_DH_VIM] = LAYOUT(
-_______,    _______,_______,_______,_______,  _______,_______,_______,_______,  _______,_______,_______,_______,    _______,KC_SLCK,_______,
-_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,    _______,_______,_______,   NNN,NNN,NNN,NNN,
-_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,    _______,_______,_______,   NNN,NNN,NNN,NNN,
-_______,_______,_______,_______,_______,_______,_______,_______,_______,TG_CV,  _______,_______,_______,                                       NNN,NNN,NNN,
-_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,                    _______,           NNN,NNN,NNN,NNN,
-_______,_______,_______,                        _______,                        _______,_______,MO_CM,  _______,    _______,_______,_______,   NNN,    NNN),
-
 
         /* [KM_DVORAK] = LAYOUT( */
 /* KC_ESC,       KC_F1, KC_F2, KC_F3, KC_F4,  KC_F5,KC_F6,KC_F7,KC_F8,  KC_F9, KC_F10,  KC_F11, KC_F12,     KC_PSCR, DF_Q,    KC_PAUS, */
@@ -269,7 +210,7 @@ _______,_______,_______,                        _______,                        
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    if (IS_LAYER_ON_STATE(state, KM_QWERTY_VIM) || IS_LAYER_ON_STATE(state, KM_COLEMAK_DH_VIM)) {
+    if (IS_LAYER_ON_STATE(state, KM_QWERTY_VIM) || IS_LAYER_ON_STATE(state, KM_DVORAK_VIM)) {
         fn_led_on();
     } else {
         fn_led_off();
@@ -281,11 +222,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 enum layer_names CURRENT_LAYER = KM_QWERTY;
 
 layer_state_t default_layer_state_set_user(layer_state_t state) {
-    if (IS_LAYER_ON_STATE(state, KM_COLEMAK_DH)) {
-        writePinLow(LED_SCROLL_LOCK_PIN);
-        writePinHigh(LED_CAPS_LOCK_PIN);
-        CURRENT_LAYER = KM_COLEMAK_DH;
-    } else if (IS_LAYER_ON_STATE(state, KM_DVORAK)) {
+    if (IS_LAYER_ON_STATE(state, KM_DVORAK)) {
         writePinLow(LED_CAPS_LOCK_PIN);
         writePinHigh(LED_SCROLL_LOCK_PIN);
         CURRENT_LAYER = KM_DVORAK;
@@ -309,20 +246,11 @@ bool led_update_user(led_t led_state) {
 }
 
 void suspend_wakeup_init_user() {
-    if (CURRENT_LAYER == KM_COLEMAK_DH) {
-        writePinLow(LED_SCROLL_LOCK_PIN);
-    } else if (CURRENT_LAYER == KM_DVORAK) {
+    if (CURRENT_LAYER == KM_DVORAK) {
         writePinLow(LED_CAPS_LOCK_PIN);
     }
-    /* if (IS_LAYER_ON(KM_COLEMAK_DH)) { */
-    /*     writePinLow(LED_SCROLL_LOCK_PIN); */
-    /* } */
-    /* if (IS_LAYER_ON(KM_QWERTY)) { */
-    /*     writePinLow(LED_CAPS_LOCK_PIN); */
-    /* } */
 }
 
-/* bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) { */
 bool get_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     switch(keycode) {
         case KC_SCLN:
