@@ -39,11 +39,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * │ESC│   │F1 │F2 │F3 │F4 │ │F5 │F6 │F7 │F8 │ │F9 │F10│F11│F12│ │PRT│SCR│PAU│     │Ghost Squid│
 * └───┘   └───┴───┴───┴───┘ └───┴───┴───┴───┘ └───┴───┴───┴───┘ └───┴───┴───┘     └───────────┘
 * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐ ┌───┬───┬───┐ ┌───┬───┬───┬───┐
-* │ ` │ - │ 7 │ 5 │ 3 │ 1 │ 9 │ 0 │ 2 │ 4 │ 6 │ 8 │ = │ Backsp│ │INS│HOM│PgU│ │NUM│ / │ * │ - │
+* │ ` │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 0 │ - │ = │ Backsp│ │INS│HOM│PgU│ │NUM│ / │ * │ - │
 * ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤ ├───┼───┼───┤ ├───┼───┼───┼───┤
 * │ Tab │ ' │ , │ . │ P │ Y │ F │ G │ C │ R │ L │ [ │ ] │     │ │DEL│END│PgD│ │ 7 │ 8 │ 9 │   │
 * ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┐  ↲ │ └───┴───┴───┘ ├───┼───┼───┤ + │
-* │ Caps │ A │ O │ E │ U │ I │ D │ H │ T │ N │ S │ / │ \ │    │               │ 7 │ 8 │ 9 │   │
+* │ Caps │ A │ O │ E │ U │ I │ D │ H │ T │ N │ S │ - │ \ │    │               │ 7 │ 8 │ 9 │   │
 * ├────┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴───┴────┤     ┌───┐     ├───┼───┼───┼───┤
 * │Shif│ < │ ; │ Q │ J │ K │ X │ B │ M │ W │ V │ Z │    Shift │     │ ↑ │     │ 1 │ 2 │ 3 │   │
 * ├────┼───┴┬──┴─┬─┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤ ┌───┼───┼───┐ ├───┴───┼───┤ ↲ │
@@ -71,14 +71,14 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 /* layers */
 enum layer_names {
-    KM_QWERTY,
-    KM_QWERTY_MEDIA,
-    KM_QWERTY_VIM,
-
     KM_DVORAK,
     KM_DVORAK_MEDIA,
     KM_DVORAK_NUM,
     KM_DVORAK_VIM,
+
+    KM_QWERTY,
+    KM_QWERTY_MEDIA,
+    KM_QWERTY_VIM,
 };
 
 // key defines
@@ -149,6 +149,35 @@ enum layer_names {
 /* |`KC_F24`                |                               |F24 */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+        [KM_DVORAK] = LAYOUT(
+KC_ESC,       KC_F1, KC_F2, KC_F3, KC_F4,  KC_F5,KC_F6,KC_F7,KC_F8,  KC_F9, KC_F10,  KC_F11, KC_F12,     KC_PSCR, DF_Q,    KC_PAUS,
+KC_GRV, KC_1, KC_2, KC_3, KC_4,KC_5,   KC_6,   KC_7,   KC_8,   KC_9,   KC_0,   KC_LBRC,KC_RBRC, KC_BSPC, KC_INS,  KC_HOME, KC_PGUP,  KC_NLCK,KC_PSLS,KC_PAST,KC_PMNS,
+KC_TAB, KC_QUOT,KC_COMM,KC_DOT,KC_P, KC_Y, KC_F,   KC_G, KC_C, KC_R,   KC_L,   KC_SLSH, KC_EQL,KC_BSLS,  KC_DEL,  KC_END,  KC_PGDN,  KC_P7,  KC_P8,  KC_P9,  KC_PPLS,
+RC_ESC, HD_A,   HD_O,   HD_E,  HD_U, KC_I, KC_D,   HD_H, HD_T, HD_N,   HD_S,   KC_MINS,         KC_ENT,                              KC_P4,  KC_P5,  KC_P6,
+KC_LSPO,KC_UNDS,KC_SCLN,KC_Q,  KC_J, KC_K, KC_X,   KC_B, KC_M, KC_W,   KC_V,   KC_Z,            KC_RSPC,          KC_UP,             KC_P1,  KC_P2,  KC_P3,  KC_PENT,
+KC_LCTL,KC_LGUI,LA_LB,                          KC_SPC,            KC_RALT,   KC_RGUI, MO_DM,  KC_RCTL,    KC_LEFT,KC_DOWN,  KC_RGHT,  KC_P0,          KC_PDOT),
+        [KM_DVORAK_NUM] = LAYOUT(
+_______,    _______,_______,_______,_______,  _______,_______,_______,_______,  _______,_______,_______,_______,    _______,_______,_______,
+_______,KC_MINS,   KC_7,   KC_5,  KC_3, KC_1, KC_9,   KC_0, KC_2, KC_4,   KC_6,   KC_8, KC_EQL, _______,    _______,_______,_______,   NNN,NNN,NNN,NNN,
+_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,    _______,_______,_______,   NNN,NNN,NNN,NNN,
+_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,  _______,_______,_______,                                     NNN,NNN,NNN,
+_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,                    _______,           NNN,NNN,NNN,NNN,
+_______,_______,_______,                        _______,                        _______,_______,_______,_______,    _______,_______,_______,   NNN,    NNN),
+        [KM_DVORAK_MEDIA] = LAYOUT(
+KC_SLEP,    KC_MYCM,KC_WSCH,KC_CALC,KC_MSEL,  KC_MPLY,KC_MSTP,KC_MPRV,KC_MNXT,  TG_DV,  KC_MUTE,KC_VOLD,KC_VOLU,     KC_PWR, KC_SLCK,RESET,
+KC_ASTG,KC_ASRP,KC_ASDN,KC_ASUP,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,     _______,_______,_______,   TG_DN,NNN,NNN,NNN,
+_______,DT_PRNT,DT_DOWN,DT_UP  , KC_F13, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, KC_F19,_______,_______,_______,     _______,_______,_______,   NNN,NNN,NNN,NNN,
+_______, KC_F20, KC_F21, KC_F22, KC_F23, KC_F24,KC_MAIL,KC_WHOM,KC_WBAK,KC_WFWD,KC_WSTP,_______,_______,                                        NNN,NNN,NNN,
+_______,KC_WREF,KC_WFAV,_______,_______,TG_DV  ,_______,_______,_______,_______,_______,_______,_______,                     _______,           NNN,NNN,NNN,NNN,
+_______,_______,_______,                  KC_LOCK,                      _______,_______,_______,_______,             _______,_______,_______,   NNN,    NNN),
+        [KM_DVORAK_VIM] = LAYOUT(
+_______,    _______,_______,_______,_______,  _______,_______,_______,_______,  _______,_______,_______,_______,    _______,KC_SLCK,_______,
+_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,    _______,_______,_______,   NNN,NNN,NNN,NNN,
+_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,    _______,_______,_______,   NNN,NNN,NNN,NNN,
+_______,_______,_______,_______,_______,_______,_______,_______,_______,TG_DV,  _______,_______,_______,                                       NNN,NNN,NNN,
+_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,                    _______,           NNN,NNN,NNN,NNN,
+_______,_______,_______,                        _______,                        _______,_______,MO_DM,  _______,    _______,_______,_______,   NNN,    NNN),
+
         [KM_QWERTY] = LAYOUT(
 KC_ESC,          KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11, KC_F12,   KC_PSCR,DF_D,   KC_PAUS,
 KC_GRV,  KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,KC_EQL, KC_BSPC,  TG_QV,  KC_HOME,KC_PGUP,    KC_NLCK,KC_PSLS,KC_PAST,KC_PMNS,
@@ -170,43 +199,6 @@ KC_TAB,  KC_Q,   C(KC_RGHT),   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   TG_QV,   
 KC_CLCK, KC_A,   KC_S,   KC_D,   KC_F,   KC_G,   KC_LEFT,KC_DOWN,KC_UP,  KC_RGHT,KC_SCLN,KC_QUOT,        KC_ENT,                               KC_P4,  KC_P5,  KC_P6,
 KC_LSPO, KC_NUBS,KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM,KC_DOT, KC_SLSH,        KC_RSPC,          KC_UP,              KC_P1,  KC_P2,  KC_P3,  KC_PENT,
 KC_LCTL, KC_LGUI,KC_LALT,                       KC_SPC,                          KC_RALT,KC_RGUI,MO_QM,  KC_RCTL,   KC_LEFT,KC_DOWN,KC_RGHT,    KC_P0,          KC_PDOT),
-
-        /* [KM_DVORAK] = LAYOUT( */
-/* KC_ESC,       KC_F1, KC_F2, KC_F3, KC_F4,  KC_F5,KC_F6,KC_F7,KC_F8,  KC_F9, KC_F10,  KC_F11, KC_F12,     KC_PSCR, DF_Q,    KC_PAUS, */
-/* KC_GRV, KC_1,   KC_2,   KC_3,  KC_4, KC_5, KC_6,   KC_7, KC_8, KC_9,   KC_0,   KC_LBRC, KC_RBRC,KC_BSPC, KC_INS,  KC_HOME, KC_PGUP,  KC_NLCK,KC_PSLS,KC_PAST,KC_PMNS, */
-/* KC_TAB, KC_QUOT,KC_COMM,KC_DOT,KC_P, KC_Y, KC_F,   KC_G, KC_C, KC_R,   KC_L,   KC_SLSH, KC_EQL, KC_BSLS, KC_DEL,  KC_END,  KC_PGDN,  KC_P7,  KC_P8,  KC_P9,  KC_PPLS, */
-/* RC_ESC, HD_A,   HD_O,   HD_E,  HD_U, KC_I, KC_D,   HD_H, HD_T, HD_N,   HD_S,   KC_MINS,         KC_ENT,                              KC_P4,  KC_P5,  KC_P6, */
-/* KC_LSPO,KC_NUBS,KC_SCLN,KC_Q,  KC_J, KC_K, KC_X,   KC_B, KC_M, KC_W,   KC_V,   KC_Z,            KC_RSPC,          KC_UP,             KC_P1,  KC_P2,  KC_P3,  KC_PENT, */
-/* KC_LCTL,KC_LGUI,LA_LB,                          KC_SPC,            RA_RB,   KC_RGUI, MO_DM,  KC_RCTL,    KC_LEFT,KC_DOWN,  KC_RGHT,  KC_P0,          KC_PDOT), */
-        [KM_DVORAK] = LAYOUT(
-KC_ESC,       KC_F1, KC_F2, KC_F3, KC_F4,  KC_F5,KC_F6,KC_F7,KC_F8,  KC_F9, KC_F10,  KC_F11, KC_F12,     KC_PSCR, DF_Q,    KC_PAUS,
-KC_GRV, KC_MINS,   KC_7,   KC_5,  KC_3, KC_1, KC_9,   KC_0, KC_2, KC_4,   KC_6,   KC_8, KC_EQL, KC_BSPC, KC_INS,  KC_HOME, KC_PGUP,  KC_NLCK,KC_PSLS,KC_PAST,KC_PMNS,
-KC_TAB, KC_QUOT,KC_COMM,KC_DOT,KC_P, KC_Y, KC_F,   KC_G, KC_C, KC_R,   KC_L,   KC_LBRC, KC_RBRC,KC_BSLS, KC_DEL,  KC_END,  KC_PGDN,  KC_P7,  KC_P8,  KC_P9,  KC_PPLS,
-RC_ESC, HD_A,   HD_O,   HD_E,  HD_U, KC_I, KC_D,   HD_H, HD_T, HD_N,   HD_S,   KC_SLSH,         KC_ENT,                              KC_P4,  KC_P5,  KC_P6,
-KC_LSPO,KC_UNDS,KC_SCLN,KC_Q,  KC_J, KC_K, KC_X,   KC_B, KC_M, KC_W,   KC_V,   KC_Z,            KC_RSPC,          KC_UP,             KC_P1,  KC_P2,  KC_P3,  KC_PENT,
-KC_LCTL,KC_LGUI,LA_LB,                          KC_SPC,            RA_RB,   KC_RGUI, MO_DM,  KC_RCTL,    KC_LEFT,KC_DOWN,  KC_RGHT,  KC_P0,          KC_PDOT),
-        [KM_DVORAK_NUM] = LAYOUT(
-_______,    _______,_______,_______,_______,  _______,_______,_______,_______,  _______,_______,_______,_______,    _______,_______,_______,
-_______,KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,KC_EQL, _______,    _______,_______,_______,   NNN,NNN,NNN,NNN,
-_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,    _______,_______,_______,   NNN,NNN,NNN,NNN,
-_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,  _______,_______,_______,                                     NNN,NNN,NNN,
-_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,                    _______,           NNN,NNN,NNN,NNN,
-_______,_______,_______,                        _______,                        _______,_______,_______,_______,    _______,_______,_______,   NNN,    NNN),
-        [KM_DVORAK_MEDIA] = LAYOUT(
-KC_SLEP,    KC_MYCM,KC_WSCH,KC_CALC,KC_MSEL,  KC_MPLY,KC_MSTP,KC_MPRV,KC_MNXT,  TG_DV,  KC_MUTE,KC_VOLD,KC_VOLU,     KC_PWR, KC_SLCK,RESET,
-KC_ASTG,KC_ASRP,KC_ASDN,KC_ASUP,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,     _______,_______,_______,   TG_DN,NNN,NNN,NNN,
-_______,DT_PRNT,DT_DOWN,DT_UP  , KC_F13, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, KC_F19,_______,_______,_______,     _______,_______,_______,   NNN,NNN,NNN,NNN,
-_______, KC_F20, KC_F21, KC_F22, KC_F23, KC_F24,KC_MAIL,KC_WHOM,KC_WBAK,KC_WFWD,KC_WSTP,_______,_______,                                        NNN,NNN,NNN,
-_______,KC_WREF,KC_WFAV,_______,_______,TG_DV  ,_______,_______,_______,_______,_______,_______,_______,                     _______,           NNN,NNN,NNN,NNN,
-_______,_______,_______,                  KC_LOCK,                      _______,_______,_______,_______,             _______,_______,_______,   NNN,    NNN),
-        [KM_DVORAK_VIM] = LAYOUT(
-_______,    _______,_______,_______,_______,  _______,_______,_______,_______,  _______,_______,_______,_______,    _______,KC_SLCK,_______,
-_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,    _______,_______,_______,   NNN,NNN,NNN,NNN,
-_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,    _______,_______,_______,   NNN,NNN,NNN,NNN,
-_______,_______,_______,_______,_______,_______,_______,_______,_______,TG_DV,  _______,_______,_______,                                       NNN,NNN,NNN,
-_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,                    _______,           NNN,NNN,NNN,NNN,
-_______,_______,_______,                        _______,                        _______,_______,MO_DM,  _______,    _______,_______,_______,   NNN,    NNN),
-
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
@@ -219,7 +211,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
-enum layer_names CURRENT_LAYER = KM_QWERTY;
+enum layer_names CURRENT_LAYER = KM_DVORAK;
 
 layer_state_t default_layer_state_set_user(layer_state_t state) {
     if (IS_LAYER_ON_STATE(state, KM_DVORAK)) {
