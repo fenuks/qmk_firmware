@@ -10,6 +10,7 @@
 - rsft -> )
 - lalt -> [
 - ralt -> ]
+- home row keys work as meta, alt, shift, and ctrl
 ### Double tap
 - a -> ą
 - c -> ć
@@ -34,3 +35,5 @@
 - Unicode (useful e.g. to map various FN keys in vim)
 - leader key and layout
 - combos
+- autocorrect
+- Caps Word

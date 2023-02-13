@@ -167,7 +167,7 @@ _______,_______,_______,                        _______,                        
 KC_SLEP,    KC_MYCM,KC_WSCH,KC_CALC,KC_MSEL,  KC_MPLY,KC_MSTP,KC_MPRV,KC_MNXT,  TG_DV,  KC_MUTE,KC_VOLD,KC_VOLU,     KC_PWR, KC_SLCK,RESET,
 KC_ASTG,KC_ASRP,KC_ASDN,KC_ASUP,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,     _______,_______,_______,   TG_DN,NNN,NNN,NNN,
 _______,DT_PRNT,DT_DOWN,DT_UP  , KC_F13, KC_F14, KC_F15, KC_F16, KC_F17, KC_F18, KC_F19,_______,_______,_______,     _______,_______,_______,   NNN,NNN,NNN,NNN,
-_______, KC_F20, KC_F21, KC_F22, KC_F23, KC_F24,KC_MAIL,KC_WHOM,KC_WBAK,KC_WFWD,KC_WSTP,_______,_______,                                        NNN,NNN,NNN,
+KC_CAPS, KC_F20, KC_F21, KC_F22, KC_F23, KC_F24,KC_MAIL,KC_WHOM,KC_WBAK,KC_WFWD,KC_WSTP,_______,_______,                                        NNN,NNN,NNN,
 _______,KC_WREF,KC_WFAV,_______,_______,TG_DV  ,_______,_______,_______,_______,_______,_______,_______,                     _______,           NNN,NNN,NNN,NNN,
 _______,_______,_______,                  KC_LOCK,                      _______,_______,_______,_______,             _______,_______,_______,   NNN,    NNN),
         [KM_DVORAK_VIM] = LAYOUT(
@@ -201,6 +201,7 @@ KC_LSPO, KC_NUBS,KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM
 KC_LCTL, KC_LGUI,KC_LALT,                       KC_SPC,                          KC_RALT,KC_RGUI,MO_QM,  KC_RCTL,   KC_LEFT,KC_DOWN,KC_RGHT,    KC_P0,          KC_PDOT),
 };
 
+/* runs after layer is changed */
 layer_state_t layer_state_set_user(layer_state_t state) {
     if (IS_LAYER_ON_STATE(state, KM_QWERTY_VIM) || IS_LAYER_ON_STATE(state, KM_DVORAK_VIM)) {
         fn_led_on();
